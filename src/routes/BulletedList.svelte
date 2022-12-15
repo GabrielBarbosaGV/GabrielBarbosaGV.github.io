@@ -56,16 +56,16 @@
 
     $: hasActivePoint = isWithinScroll;
 
-    const repeat = <T,>(elem: T, n: number) => new Array(n).map(_ => elem);
+    const repeat = <T,>(elem: T, n: number) => [...new Array(n)].map(_ => elem);
 
-    const pointDivTop = tweened(0);
+    const pointDivTop = tweened(0, { duration: 100 });
 
     function manipulateHighlightedPoints() {
         const [_, closestPointIndex] = pointPositions.map(p => p.getBoundingClientRect().top).reduce(([dist, oldI], b, i) => {
             const aDistanceToMiddle = dist;
             const bDistanceToMiddle = Math.abs(b - middleOfScreenDistance);
 
-            return bDistanceToMiddle < aDistanceToMiddle && (bDistanceToMiddle < viewportHeight * 0.3 || oldI === -1)
+            return bDistanceToMiddle < aDistanceToMiddle
                 ? [bDistanceToMiddle, i]
                 : [aDistanceToMiddle, oldI];
         }, [Infinity, -1]);
@@ -93,7 +93,9 @@
     });
 
     function setOpacitiesForClosestIndex(closestIndex: number) {
-        pointOpacities.set(points.map((_, i) => i === closestIndex ? 100 : 0));
+        const opacities = points.map((_, i) => i === closestIndex ? 100 : 0);
+
+        pointOpacities.set(opacities);
     }
 
     function newIntervalForcer(beginning: number, end: number) {
@@ -236,7 +238,7 @@
             flex-grow: 4;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: start;
             justify-content: start;
             height: {bulletedListHeight}px;
         "
