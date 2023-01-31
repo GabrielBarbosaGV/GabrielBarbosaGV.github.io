@@ -18,39 +18,55 @@
 
 </script>
 
-<span class="text-3xl text-center">
-    Hello there!
-</span>
+<div
+    class="
+        flex
+        flex-col
+        justify-center
+        align-middle
+        text-center
+        mx-40
+    "
+    >
 
-<p class="mt-4">
-    I've been getting into the habit of writing down my thoughts, for better control over life aspects. I thought that it might also be a good idea
-    to write down these thoughts for others to see, and to get feedback as well. I hope you like the content :)
-</p>
+    <span class="text-[40px] text-center mb-4">
+        Hello there!
+    </span>
 
-<span class="text-xl mt-4">
-    Posts
-</span>
+    <p class="text-l sm:text-md text-justify">
+        I've been getting into the habit of writing down my thoughts, for better control over life aspects. I thought that it might also be a good idea
+        to write down these thoughts for others to see, and to get feedback as well. I hope you like the content :)
+    </p>
 
-<ul class="list-disc">
+    <div class="text-slate-200" >
 
-    {#each pageHeaders as { title, url, dateString } (url)}
+        <div
+            class="
+                bg-gradient-to-r
+                from-[#3e0079]
+                to-[#4106ca]
+                rounded-t-lg
+                text-[25px]
+                pl-4
+                text-left
+                mt-5
+            "
+            >
 
-    <div class="hover:text-3xl hover:translate-y-[-20%] transition-all">
-        <li class="ml-4">
-            <a href="{url}" class="underline">
-                {title}
-            </a>
+            Posts
 
-            {#if dateString}
+        </div>
 
-            <span class="text-gray-500">
-                {dateString}
-            </span>
+        <div class="rounded-lg h-[700px] bg-gradient-to-b from-[#2c048a] to-[#1d015f] mt-3 flex justify-center align-middle">
+
+            {#if titleAndUrlList.length === 0}
+                <div class="text-purple-300 h-[100%] flex flex-col justify-center">Nothing... yet!</div>
+            {:else}
 
             {/if}
-        </li>
+
+        </div>
+
     </div>
 
-    {/each}
-
-</ul>
+</div>
