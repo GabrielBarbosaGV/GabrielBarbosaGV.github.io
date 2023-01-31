@@ -8,7 +8,7 @@
     </span>
 </div>
 
-<div class="text-purple-400 flex flex-col align-middle p-4">
+<div class="text-purple-100 flex flex-col align-middle p-4">
     <slot />
 </div>
 
