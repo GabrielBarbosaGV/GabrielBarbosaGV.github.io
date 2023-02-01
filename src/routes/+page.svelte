@@ -25,7 +25,9 @@
         justify-center
         align-middle
         text-center
-        mx-40
+        xl:mx-40
+        fold:mx-10
+        mx-2
     "
     >
 
@@ -57,12 +59,36 @@
 
         </div>
 
-        <div class="rounded-lg h-[700px] bg-gradient-to-b from-[#2c048a] to-[#1d015f] mt-3 flex justify-center align-middle">
+        <div
+            class="
+                rounded-lg
+                xl:h-[700px]
+                fold:h-[170px]
+                h-[195px]
+                bg-gradient-to-b
+                from-[#2c048a]
+                to-[#1d015f]
+                mt-3
+                flex
+                justify-center
+                align-middle
+            "
+            >
 
             {#if titleAndUrlList.length === 0}
-                <div class="text-purple-300 h-[100%] flex flex-col justify-center">Nothing... yet!</div>
-            {:else}
+                <div
+                    class="
+                        text-purple-300
+                        h-[100%]
+                        flex
+                        flex-col
+                        justify-center
+                    "
+                    >
 
+                    Nothing... yet!
+
+                </div>
             {/if}
 
         </div>
