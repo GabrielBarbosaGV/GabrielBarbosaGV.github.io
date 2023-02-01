@@ -1,3 +1,7 @@
+<script lang="ts">
+    import Posts from './Posts.svelte';
+</script>
+
 <div
     class="
         flex
@@ -53,10 +57,13 @@
                 align-middle
                 grid
                 grid-cols-3
+                fold:grid-cols-4
+                lg:grid-cols-6
+                gap-3
             "
             >
-
-            <!-- TODO add first post -->
+            
+            <Posts />
 
         </div>
 
