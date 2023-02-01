@@ -64,7 +64,7 @@
                 rounded-lg
                 xl:h-[700px]
                 fold:h-[170px]
-                h-[195px]
+                h-[300px]
                 bg-gradient-to-b
                 from-[#2c048a]
                 to-[#1d015f]
