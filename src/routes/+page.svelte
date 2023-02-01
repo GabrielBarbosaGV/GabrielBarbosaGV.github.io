@@ -1,23 +1,3 @@
-<script lang="ts">
-
-    import type PageHeader from '../PageHeader';
-
-    function pageInfoToPageHeader([title, url, dateString]: [string, string, string?]): PageHeader {
-        return {
-            title,
-            url,
-            dateString
-        };
-    }
-
-    const titleAndUrlList: [string, string, string?][] = [
-
-    ];
-
-    const pageHeaders = titleAndUrlList.map(pageInfoToPageHeader);
-
-</script>
-
 <div
     class="
         flex
@@ -25,9 +5,9 @@
         justify-center
         align-middle
         text-center
-        xl:mx-40
-        fold:mx-10
         mx-2
+        fold:mx-10
+        lg:mx-40
     "
     >
 
@@ -62,34 +42,21 @@
         <div
             class="
                 rounded-lg
-                xl:h-[700px]
-                fold:h-[170px]
                 h-[300px]
+                fold:h-[170px]
+                lg:h-[700px]
                 bg-gradient-to-b
                 from-[#2c048a]
                 to-[#1d015f]
                 mt-3
-                flex
                 justify-center
                 align-middle
+                grid
+                grid-cols-3
             "
             >
 
-            {#if titleAndUrlList.length === 0}
-                <div
-                    class="
-                        text-purple-300
-                        h-[100%]
-                        flex
-                        flex-col
-                        justify-center
-                    "
-                    >
-
-                    Nothing... yet!
-
-                </div>
-            {/if}
+            <!-- TODO add first post -->
 
         </div>
 
