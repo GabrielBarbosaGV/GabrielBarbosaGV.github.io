@@ -13,18 +13,11 @@
         bg-black
         transition-all
         hover:m-1
+        h-[33%]
     "
     >
 
-    <a
-        href="{href}"
-        class="
-            h-[100%]
-            flex
-            flex-col
-            justify-center
-        "
-        >
+    <a href="{href}">
 
         <slot />
 
