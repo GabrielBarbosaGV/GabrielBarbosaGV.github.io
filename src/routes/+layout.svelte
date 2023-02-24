@@ -6,7 +6,7 @@
 
 <style>
   :global(body) {
-    background-color: #FFFFFF;
-    height: 100vh;
+    background: linear-gradient(to bottom, #FFFFAA, #FFFFDD) no-repeat center center fixed;
+    min-height: 100vh;
   }
 </style>
