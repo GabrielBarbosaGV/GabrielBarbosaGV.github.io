@@ -282,4 +282,8 @@
   </div>
 
   <TechnologyDescriptions selectedLabel={selectedLabel} />
+
+  <div class="flex justify-center align-center mt-[50em]">
+    <span class="text-3xl">More upcoming...</span>
+  </div>
 </div>

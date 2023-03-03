@@ -19,11 +19,11 @@
 
       <CodeBlock lang="language-html">
         {`
-          <script src="https://unpkg.com/htmx.org@1.8.6"></script>
-          <!-- have a button POST a click via AJAX -->
-          <button hx-post="/clicked" hx-swap="outerHTML">
-            Click Me
-          </button>
+<script src="https://unpkg.com/htmx.org@1.8.6"></script>
+<!-- have a button POST a click via AJAX -->
+<button hx-post="/clicked" hx-swap="outerHTML">
+  Click Me
+</button>
         `}
       </CodeBlock>
 
@@ -65,14 +65,41 @@
 
     <CodeBlock lang="language-haskell">
       {`
-        module Main
-        import Data.Char
+module Main
+import Data.Char
 
-        main = do
-            putStrLn "Do you like Haskell?"
-            answer <- getLine
-            putStrLn $ if map toLower answer == "Yes" then "One of fine tastes ;)" else "Wrong answer!"
+main :: IO ()
+main = do
+    putStrLn "Do you like Haskell?"
+    answer <- getLine
+    putStrLn $ if map toLower answer == "yes" then "One of fine tastes ;)" else "Wrong answer!"
       `}
     </CodeBlock>
+  </TechnologyDescription>
+
+  <TechnologyDescription invisible={isNotSelected('ts')}>
+    We all know and love TypeScript. Dynamically typed languages should not bring problems on their own, if proper testing is done,
+    but proramming just becomes a whole lot faster when the compiler is holding your hand through the process. Whilst not as powerful
+    as Rust in its type system, it is possible to do a lot with TypeScript, and, for the purposes of the web, definitely more than enough.
+
+    <CodeBlock lang="language-typescript">
+      {`
+function sentiment([s, ...strings]: string[], language, sentiment) {
+  return s && s === "is" ? \`You appear to feel that \${language} is \${sentiment}\`;
+}
+
+const lang = "TypeScript";
+const sentiment = "awesome";
+
+console.log(sentiment\`\${lang} is \${awesome}\`);
+
+// output: "You appear to feel that TypeScript is awesome"
+      `}
+    </CodeBlock>
+  </TechnologyDescription>
+
+  <TechnologyDescription invisible={isNotSelected('chatgpt')}>
+    Not much to say here, I'm pretty sure you know ChatGPT pretty well.
+    If not, get your mind blown <a class="underline text-yellow-600" href="https://chat.openai.com/chat">here</a>.
   </TechnologyDescription>
 </div>
