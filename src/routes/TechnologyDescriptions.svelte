@@ -1,40 +1,78 @@
 <script lang="ts">
   import TechnologyDescription from './TechnologyDescription.svelte';
-  import Prism from 'prismjs';
+  import CodeBlock from './CodeBlock.svelte';
+  import { browser } from '$app/environment';
 
   export let selectedLabel: string;
-
-  const makeLanguageHighlighter = (language: string) => (code: string) => Prism.highlight(
-    code,
-    Prism.languages[language],
-    language
-  );
-
-  const highlightHtml = makeLanguageHighlighter('html');
 
   $: isNotSelected = (label: string) => label !== selectedLabel;
 </script>
 
-<svelte:head>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css" rel="stylesheet" />
-</svelte:head>
+{#if browser}
+  <script src="prism.js"></script>
+{/if}
 
-<div class="relative pt-6 pb-36 flex align-center justify-center">
+<div class="relative flex align-center justify-center">
   <TechnologyDescription invisible={isNotSelected('htmx')}>
       HTMX is a HTML extension library that allows for asynchronous operations to alter the DOM. <br>
       One possible usage is the following, as shown in the technology's official page: <br><br>
 
-      <div class="bg-black text-white rounded-lg p-4">
-        {@html highlightHtml(`
-          <h1>Hello there!</h1>
-        `)}
-      </div>
+      <CodeBlock lang="language-html">
+        {`
+          <script src="https://unpkg.com/htmx.org@1.8.6"></script>
+          <!-- have a button POST a click via AJAX -->
+          <button hx-post="/clicked" hx-swap="outerHTML">
+            Click Me
+          </button>
+        `}
+      </CodeBlock>
 
       <br>
       This will allow the result of the POST request, to path "/clicked", to swap the content of the button.
+
+      This HTML extension is great for not overengineering simple web-pages. To be fair, this very page
+      might be overengineered, but I just love SvelteKit that much.
   </TechnologyDescription>
 
   <TechnologyDescription invisible={isNotSelected('haskell')}>
-    Haskell
+    Haskell is an amazing and underrated functional programming language. Its type inference and concise syntax
+    would make it very powerful, were it not left in the sidelines a good portion of time due to the mistification
+    of monads and their usage.
+
+    It's not possible to portray all of the good aspects of the language solely through a small code block, so I
+    recommend taking a look at these videos:
+
+    <div class="flex justify-center align-center my-6">
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/RqvCNb7fKsg"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        class="mx-2"
+      />
+
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/Qa8IfEeBJqk"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        class="mx-2"
+      />
+    </div>
+
+
+    <CodeBlock lang="language-haskell">
+      {`
+        module Main
+        import Data.Char
+
+        main = do
+            putStrLn "Do you like Haskell?"
+            answer <- getLine
+            putStrLn $ if map toLower answer == "Yes" then "One of fine tastes ;)" else "Wrong answer!"
+      `}
+    </CodeBlock>
   </TechnologyDescription>
 </div>
