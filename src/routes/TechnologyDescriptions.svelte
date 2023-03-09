@@ -12,7 +12,7 @@
   <script src="prism.js"></script>
 {/if}
 
-<div class="relative flex align-center justify-center">
+<div class="relative">
   <TechnologyDescription invisible={isNotSelected('htmx')}>
       HTMX is a HTML extension library that allows for asynchronous operations to alter the DOM. <br>
       One possible usage is the following, as shown in the technology's official page: <br><br>
@@ -42,7 +42,7 @@
     It's not possible to portray all of the good aspects of the language solely through a small code block, so I
     recommend taking a look at these videos:
 
-    <div class="flex justify-center align-center my-6">
+    <div class="flex justify-center my-6">
       <iframe width="560" height="315"
         src="https://www.youtube.com/embed/RqvCNb7fKsg"
         title="YouTube video player"
