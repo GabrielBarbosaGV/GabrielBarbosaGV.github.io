@@ -1,7 +1,14 @@
 <script lang="ts">
-  export let invisible: boolean;
+  import { browser } from '$app/environment';
+  export let visible: boolean;
 </script>
 
-<div class:opacity-0={invisible} class="transition-all absolute py-4 w-full h-[700px] overflow-x-scroll">
-  <slot />
-</div>
+{#if visible}
+  {#if browser}
+    <script src="prism.js"></script>
+  {/if}
+
+  <div class="py-4">
+    <slot />
+  </div>
+{/if}
