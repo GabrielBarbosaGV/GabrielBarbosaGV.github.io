@@ -13,13 +13,11 @@
       One possible usage is the following, as shown in the technology's official page: <br><br>
 
       <CodeBlock lang="language-html">
-        {`
-<script src="https://unpkg.com/htmx.org@1.8.6"></script>
-<!-- have a button POST a click via AJAX -->
-<button hx-post="/clicked" hx-swap="outerHTML">
-  Click Me
-</button>
-        `}
+        {`    `}
+        &lt;script src=&quot;https://unpkg.com/htmx.org@1.8.6&quot;&gt;&lt;/script&gt;
+        &lt;button hx-post=&quot;/clicked&quot; hx-swap=&quot;outerHTML&quot;&gt;
+          Click Me
+        &lt;/button&gt;
       </CodeBlock>
 
       <br>
@@ -82,7 +80,7 @@ function sentiment([s, ...strings]: string[], language, sentiment) {
 }
 
 const lang = "TypeScript";
-const sentiment = "awesome";
+const amazing = "awesome";
 
 console.log(sentiment\`\${lang} is \${awesome}\`);
 
