@@ -216,14 +216,19 @@
     <WorkExperience title="B2W Digital (Americanas)" startDate="10/04/2021" endDate="30/08/2021">
       Great opportunity to work with Elixir + Phoenix, as well as Ruby on Rails. A lot of fun,
       and the line in the sand that marks my seeking of opportunity outside of Brazil, due to
-      unfortunate economical, health and security conditions. I am extremely grateful for the
-      opportunity I was given.
+      unfortunate economical, health and security conditions. I am quite grateful for the
+      experience.
     </WorkExperience>
 
-    <WorkExperience title="EDGE" startDate="01/09/2021">
-      My current job, through which I have been working with BNP Paribas. All of the skills I've
-      mustered - be they from the other professional experiences, or own time spent learning -
-      are ultimately put to the test.
+    <WorkExperience title="EDGE" startDate="01/09/2021" endDate="14/06/2023">
+      My first job in Portugal, in which I mostly used Java and Angular. Dealt heavily with 
+      stored procedures, but I don't think that part was so fun, as it was quite troublesome
+      to debug what was going on inside.
+    </WorkExperience>
+
+    <WorkExperience title="KnowledgeWorks" startDate="14/06/2023">
+      My current job! JavaScript/TypeScript everywhere, though I wish we leaned a little more
+      towards TypeScript. JSDoc helps, though.
     </WorkExperience>
 
     <div class="text-center mb-6">

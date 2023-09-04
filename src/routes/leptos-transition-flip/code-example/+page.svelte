@@ -26,7 +26,7 @@
 
   // Struct to contain all the useful information. As we will need to identify each
   // node_ref, we use an usize as a simple key. The ID needs to be
-  // Hash + Eq + Clone.
+  // Hash + Eq + Clone + Display. Display is necessary for showing errors.
 #[derive(Clone)]
   struct ListItem<V>
   where
