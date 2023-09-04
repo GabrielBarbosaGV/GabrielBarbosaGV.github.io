@@ -172,8 +172,8 @@
 
       As a software engineer, I've dealt with a fair share of codebases and systems
       administration workflows, all of which possessed varying degrees of efficiency,
-      when the metric is taken over all attributes of the routines, including clearness
-      and testability, as opposed to merely amount of production code over time.
+      (when the metric is taken over all attributes, including clearness
+      and testability, as opposed to merely amount of production code over time).
       That being so, I feel confident in my sense for professional, clean code, that
       does certainly value feature throughput, but especially values correctness and
       robustness. Effective testing pays more than it costs, doubling as validation and
