@@ -76,13 +76,13 @@ main = do
     <CodeBlock lang="language-typescript">
       {`
 function sentiment([s, ...strings]: string[], language, sentiment) {
-  return s && s === "is" ? \`You appear to feel that \${language} is \${sentiment}\`;
+  return s && s === "is" ? \`You appear to feel that \${language} is \${sentiment}\` : "I do not know what you are talking about";
 }
 
 const lang = "TypeScript";
-const amazing = "awesome";
+const opinion = "awesome";
 
-console.log(sentiment\`\${lang} is \${awesome}\`);
+console.log(sentiment\`\${lang} is \${opinion}\`);
 
 // output: "You appear to feel that TypeScript is awesome"
       `}

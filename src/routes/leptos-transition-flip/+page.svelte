@@ -1,8 +1,8 @@
 <script lang="ts">
   import { crossfade } from "svelte/transition";
   import { flip } from "svelte/animate";
-  import { browser } from "$app/environment";
 	import CodeBlock from "../CodeBlock.svelte";
+	import { onMount } from "svelte";
 
   const [send, receive] = crossfade({});
 
@@ -48,11 +48,13 @@
 
     setTimeout(() => playing = false, 1000);
   }
-</script>
 
-{#if browser}
-    <script src="../prism.js"></script>
-{/if}
+  onMount(() => {
+    if (window?.Prism) {
+      window.Prism.highlightAll();
+    }
+  });
+</script>
 
 <div class="flex flex-row justify-center items-center my-6">
   <h1 class="text-3xl">The leptos_transition_flip Crate</h1>
@@ -96,7 +98,7 @@
 
   <p>
     As I wanted the same effect with the also great Leptos Rust crate, I created the
-    <a href="https://github.com/GabrielBarbosaGV/leptos-transition-flip" class="text-green-700">
+    <a href="https://github.com/GabrielBarbosaGV/leptos-transition-flip" class="text-green-700 bg-orange-200">
       leptos_transition_flip crate.
     </a>
     It results in the same effect (click to play video):
@@ -129,7 +131,7 @@ let (flip, clear) = prepare_flip(
 // Perform FLIP animation
 flip().map_err(|err| format!("FLIP failed with error: {err}"))?;
 
-// Await end and then clear transition style
+// Await end, and then clear transition style
 set_timeout(|| {
     if let Err(err) = clear() {
       console_log("Error occurred when trying to clear FLIP transition style: {err}");
@@ -141,8 +143,8 @@ set_timeout(|| {
     <p>
       A full code example can be found
 
-      <a href="/leptos-transition-flip/code-example">
-        Here
+      <a href="/leptos-transition-flip/code-example" class="text-green-700 bg-orange-200">
+        here.
       </a>
     </p>
 </div>
