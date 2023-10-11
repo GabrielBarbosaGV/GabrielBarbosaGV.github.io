@@ -4,16 +4,15 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout.ad80d8cc.css" rel="stylesheet">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.b98e992c.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.4a8c4a25.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.1f47b4ed.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.eb5c5eeb.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.3200e766.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.ts.fb1865a6.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_layout.da46b06b.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.07f56a82.mjs">
+		
+		<link href="./_app/immutable/assets/0.28a5e4da.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.ba3cccdf.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.201e1dc2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.faa37769.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.e886774f.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.7411febf.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.53129008.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CodeBlock.c805c78d.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -41,8 +40,8 @@
 
       As a software engineer, I&#39;ve dealt with a fair share of codebases and systems
       administration workflows, all of which possessed varying degrees of efficiency,
-      when the metric is taken over all attributes of the routines, including clearness
-      and testability, as opposed to merely amount of production code over time.
+      (when the metric is taken over all attributes, including clearness
+      and testability, as opposed to merely amount of production code over time).
       That being so, I feel confident in my sense for professional, clean code, that
       does certainly value feature throughput, but especially values correctness and
       robustness. Effective testing pays more than it costs, doubling as validation and
@@ -85,19 +84,29 @@
 
   <p class="text-md md:text-xl text-justify ">Great opportunity to work with Elixir + Phoenix, as well as Ruby on Rails. A lot of fun,
       and the line in the sand that marks my seeking of opportunity outside of Brazil, due to
-      unfortunate economical, health and security conditions. I am extremely grateful for the
-      opportunity I was given.
+      unfortunate economical, health and security conditions. I am quite grateful for the
+      experience.
     </p></div>
 
     <div class="mb-10"><span class="text-md md:text-xl "><strong>EDGE:</strong></span>
 
-  <span>From 01/09/2021 (Current)</span>
+  <span>From 01/09/2021 to 14/06/2023</span>
 
   <hr class="my-4">
 
-  <p class="text-md md:text-xl text-justify ">My current job, through which I have been working with BNP Paribas. All of the skills I&#39;ve
-      mustered - be they from the other professional experiences, or own time spent learning -
-      are ultimately put to the test.
+  <p class="text-md md:text-xl text-justify ">My first job in Portugal, in which I mostly used Java and Angular. Dealt heavily with 
+      stored procedures, but I don&#39;t think that part was so fun, as it was quite troublesome
+      to debug what was going on inside.
+    </p></div>
+
+    <div class="mb-10"><span class="text-md md:text-xl "><strong>KnowledgeWorks:</strong></span>
+
+  <span>From 14/06/2023 (Current)</span>
+
+  <hr class="my-4">
+
+  <p class="text-md md:text-xl text-justify ">My current job! JavaScript/TypeScript everywhere, though I wish we leaned a little more
+      towards TypeScript. JSDoc helps, though.
     </p></div>
 
     <div class="text-center mb-6"><span class="text-green-300 text-xl md:text-2xl"><strong>My favourite technologies:</strong></span></div>
@@ -126,19 +135,20 @@
 			
 			<script>
 				{
-					__sveltekit_txojio = {
-						env: {},
-						assets: new URL(".", location.href).pathname.replace(/^\/$/, ''),
-						element: document.currentScript.parentElement
+					__sveltekit_1bd5gmx = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
 					};
+
+					const element = document.currentScript.parentElement;
 
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.b98e992c.mjs"),
-						import("./_app/immutable/entry/app.eb5c5eeb.mjs")
+						import("./_app/immutable/entry/start.ba3cccdf.js"),
+						import("./_app/immutable/entry/app.e886774f.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_txojio.element, {
+						kit.start(app, element, {
 							node_ids: [0, 2],
 							data,
 							form: null,

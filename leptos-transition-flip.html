@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link href="./_app/immutable/assets/0.28a5e4da.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.ba3cccdf.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.201e1dc2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.faa37769.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.e886774f.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.7411febf.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.e0b3a28f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CodeBlock.c805c78d.js"><!-- HEAD_svelte-1vhthgi_START --><link href="/themes/prism.css" rel="stylesheet"><script src="/prism.js"></script><!-- HEAD_svelte-1vhthgi_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+<div class="flex flex-row justify-center items-center my-6"><h1 class="text-3xl">The leptos_transition_flip Crate</h1></div>
+
+<div class="flex flex-col justify-center items-center my-6 mx-20">Svelte trivializes the creation of element transitions among lists
+  with the crossfade function. The resulting effect is this:
+
+  <div class="flex flex-row justify-around items-center my-6 mx-10"><div class="w-[50vw] flex flex-col justify-center items-center"><div class="bg-green-200 w-[10vw] my-2 rounded-md flex justify-center items-center cursor-pointer">One
+        </div><div class="bg-green-200 w-[10vw] my-2 rounded-md flex justify-center items-center cursor-pointer">Two
+        </div><div class="bg-green-200 w-[10vw] my-2 rounded-md flex justify-center items-center cursor-pointer">Three
+        </div></div>
+
+    <div class="w-[50vw] flex flex-col justify-center items-center"></div></div>
+
+  <p>As I wanted the same effect with the also great Leptos Rust crate, I wrote a small crate,
+    <a href="https://github.com/GabrielBarbosaGV/leptos-transition-flip" class="text-green-700 bg-orange-200">leptos_transition_flip crate.
+    </a>
+    It results in the same effect (click to play video):
+  </p>
+
+  <video class="rounded-md my-6" src="flip_example.webm" currentTime="0">Your browser does not support video tags
+
+    <track kind="captions"></video>
+
+  <p></p>
+
+  <p>Here is a simple usage example:
+  </p>
+
+  
+
+<pre>  <code class="language-rust">
+    
+// Call before changing NodeRefs' positions
+let (flip, clear) = prepare_flip(
+    ids_to_node_refs,
+    container_div_node_ref,
+    "transform 0.6s".to_string()
+).map_err(|err| format!("FLIP preparation failed with error: {err}"))?;
+
+// Perform action that will change the NodeRefs' positions in page, such as setting signals
+// ...
+
+// Perform FLIP animation
+flip().map_err(|err| format!("FLIP failed with error: {err}"))?;
+
+// Await end, and then clear transition style
+set_timeout(|| {
+    if let Err(err) = clear() {
+      console_log("Error occurred when trying to clear FLIP transition style: {err}");
+    }
+}, Duration::from_millis(600));
+  
+  </code>
+</pre>
+
+    <p>A full code example can be found
+
+      <a href="/leptos-transition-flip/code-example" class="text-green-700 bg-orange-200">here.
+      </a></p></div>
+
+
+			
+			<script>
+				{
+					__sveltekit_1bd5gmx = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.ba3cccdf.js"),
+						import("./_app/immutable/entry/app.e886774f.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
