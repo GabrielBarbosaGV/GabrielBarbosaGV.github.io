@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="../favicon.png" />
-		<meta name="viewport" content="width=device-width" />
-		
-		<link href="../_app/immutable/assets/0.28a5e4da.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.1ba2ac06.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.201e1dc2.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.f6d69a4e.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.c238c632.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.7411febf.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/4.cbe671d0.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/CodeBlock.c805c78d.js"><!-- HEAD_svelte-1vhthgi_START --><link href="/themes/prism.css" rel="stylesheet"><script src="/prism.js"></script><!-- HEAD_svelte-1vhthgi_END -->
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">
-
-
-<div class="flex flex-row justify-center items-center"><h1 class="text-3xl">Full leptos_transition_flip example</h1></div>
-
-<div class="mx-40">
-
-<pre>  <code class="language-rust">
-    
+import{S as y,i as b,s as $,k as d,q as x,a as D,y as k,l as p,m as h,r as w,h as a,c as I,z as E,n as u,b as f,G as g,A as L,g as A,d as H,B as V,o as F,H as M}from"../chunks/index.201e1dc2.js";import{C as P}from"../chunks/CodeBlock.c805c78d.js";function T(_){let t=`
 use leptos::{
     html::{Div, ElementDescriptor},
     leptos_dom::console_log,
@@ -36,13 +11,13 @@ use std::{collections::HashMap, time::Duration};
 // node_ref, we use an usize as a simple key. The ID needs to be
 // Hash + Eq + Clone + Display. Display is necessary for showing errors.
 #[derive(Clone)]
-struct ListItem&lt;V>
+struct ListItem<V>
 where
     V: ElementDescriptor + 'static,
 {
     id: usize,
     text: String,
-    node_ref: NodeRef&lt;V>,
+    node_ref: NodeRef<V>,
 }
 
 // Example component that does nothing beyond cosmetics. Two lists of elements
@@ -67,11 +42,11 @@ fn App(cx: Scope) -> impl IntoView {
                     ListItem {
                         id: index,
                         text: text.to_string(),
-                        node_ref: create_node_ref::&lt;Div>(cx),
+                        node_ref: create_node_ref::<Div>(cx),
                     },
                 )
             })
-            .collect::&lt;Vec&lt;_>>(),
+            .collect::<Vec<_>>(),
     );
 
     // Left list that starts with all the elements.
@@ -81,9 +56,9 @@ fn App(cx: Scope) -> impl IntoView {
     let (right_items, set_right_items) = create_signal(cx, Vec::new());
 
     view! { cx,
-        &lt;div node_ref=reflow_target class="w-[100vw] h-[100vh] bg-blue-200 flex justify-around items-center">
-            &lt;div class="flex justify-around items-center flex-col">
-                &lt;For
+        <div node_ref=reflow_target class="w-[100vw] h-[100vh] bg-blue-200 flex justify-around items-center">
+            <div class="flex justify-around items-center flex-col">
+                <For
                     each=left_items
                     key=move |(item, _)| item().id
                     view=move |cx, (item, _)| {
@@ -97,7 +72,7 @@ fn App(cx: Scope) -> impl IntoView {
                                     .into_iter()
                                     .map(|(item, _)| item())
                                     .map(|ListItem { id, node_ref, .. }| (id, node_ref))
-                                    .collect::&lt;HashMap&lt;_, _>>();
+                                    .collect::<HashMap<_, _>>();
 
                             // This is the leptos_transition_flip crate's function. It receives the
                             // aformentioned mapping, the node_ref of the reflow target, and,
@@ -128,31 +103,31 @@ fn App(cx: Scope) -> impl IntoView {
                             // Do FLIP.
                             match flip().map_err(|err| format!("An error has occurred when attempting a FLIP: {:?}", err)) {
                                 Ok(()) => (),
-                                Err(err) => console_log(&amp;format!("{err}"))
+                                Err(err) => console_log(&format!("{err}"))
                             }
 
                             // Clear styles after timeout.
                             set_timeout(|| {
                                 match clear().map_err(|err| format!("An error has occurred when attempting to clear the elements' transition styles: {:?}", err)) {
                                     Ok(()) => (),
-                                    Err(err) => console_log(&amp;format!("{err}"))
+                                    Err(err) => console_log(&format!("{err}"))
                                 }
                             }, Duration::from_millis(600));
                         };
 
                         view! { cx,
-                            &lt;div node_ref=node_ref class="bg-green-200 my-2 w-[10vw] flex justify-center items-center" on:click=move_item_right>
-                                &lt;span>
+                            <div node_ref=node_ref class="bg-green-200 my-2 w-[10vw] flex justify-center items-center" on:click=move_item_right>
+                                <span>
                                     {move || item().text}
-                                &lt;/span>
-                            &lt;/div>
+                                </span>
+                            </div>
                         }
                     }
                 />
-            &lt;/div>
+            </div>
 
-            &lt;div class="flex flex-col justify-around items-center">
-                &lt;For
+            <div class="flex flex-col justify-around items-center">
+                <For
                     each=right_items
                     key=move |(item, _)| item().id
                     view=move |cx, (item, _)| {
@@ -166,7 +141,7 @@ fn App(cx: Scope) -> impl IntoView {
                                 .into_iter()
                                 .map(|(item, _)| item())
                                 .map(|ListItem { id, node_ref, .. }| (id, node_ref))
-                                .collect::&lt;HashMap&lt;_, _>>();
+                                .collect::<HashMap<_, _>>();
 
                             let (flip, clear) = prepare_flip(ids_to_node_refs, reflow_target, "transform 1s".to_string()).unwrap();
 
@@ -188,52 +163,20 @@ fn App(cx: Scope) -> impl IntoView {
                         };
 
                         view! { cx,
-                            &lt;div node_ref=node_ref class="bg-green-200 my-2 w-[10vw] flex justify-center items-center" on:click=move_item_left>
-                                &lt;span>
+                            <div node_ref=node_ref class="bg-green-200 my-2 w-[10vw] flex justify-center items-center" on:click=move_item_left>
+                                <span>
                                     {move || item().text}
-                                &lt;/span>
-                            &lt;/div>
+                                </span>
+                            </div>
                         }
                     }
                 />
-            &lt;/div>
-        &lt;/div>
+            </div>
+        </div>
     }
 }
 
 fn main() {
-    mount_to_body(|cx| view! { cx, &lt;App /> });
+    mount_to_body(|cx| view! { cx, <App /> });
 }
-    
-  </code>
-</pre></div>
-
-
-			
-			<script>
-				{
-					__sveltekit_4hyd9a = {
-						base: new URL("..", location).pathname.slice(0, -1),
-						env: {}
-					};
-
-					const element = document.currentScript.parentElement;
-
-					const data = [null,null];
-
-					Promise.all([
-						import("../_app/immutable/entry/start.1ba2ac06.js"),
-						import("../_app/immutable/entry/app.c238c632.js")
-					]).then(([kit, app]) => {
-						kit.start(app, element, {
-							node_ids: [0, 4],
-							data,
-							form: null,
-							error: null
-						});
-					});
-				}
-			</script>
-		</div>
-	</body>
-</html>
+    `,i;return{c(){i=x(t)},l(s){i=w(s,t)},m(s,l){f(s,i,l)},p:M,d(s){s&&a(i)}}}function j(_){let t,i,s,l,n,o,c;return o=new P({props:{lang:"language-rust",$$slots:{default:[T]},$$scope:{ctx:_}}}),{c(){t=d("div"),i=d("h1"),s=x("Full leptos_transition_flip example"),l=D(),n=d("div"),k(o.$$.fragment),this.h()},l(e){t=p(e,"DIV",{class:!0});var r=h(t);i=p(r,"H1",{class:!0});var m=h(i);s=w(m,"Full leptos_transition_flip example"),m.forEach(a),r.forEach(a),l=I(e),n=p(e,"DIV",{class:!0});var v=h(n);E(o.$$.fragment,v),v.forEach(a),this.h()},h(){u(i,"class","text-3xl"),u(t,"class","flex flex-row justify-center items-center"),u(n,"class","mx-40")},m(e,r){f(e,t,r),g(t,i),g(i,s),f(e,l,r),f(e,n,r),L(o,n,null),c=!0},p(e,[r]){const m={};r&1&&(m.$$scope={dirty:r,ctx:e}),o.$set(m)},i(e){c||(A(o.$$.fragment,e),c=!0)},o(e){H(o.$$.fragment,e),c=!1},d(e){e&&a(t),e&&a(l),e&&a(n),V(o)}}}function C(_){return F(()=>{window!=null&&window.Prism&&window.Prism.highlightAll()}),[]}class O extends y{constructor(t){super(),b(this,t,C,j,$,{})}}export{O as component};
