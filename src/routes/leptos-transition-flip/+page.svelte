@@ -97,7 +97,7 @@
   </div>
 
   <p>
-    As I wanted the same effect with the also great Leptos Rust crate, I created the
+    As I wanted the same effect with the also great Leptos Rust crate, I wrote a small crate,
     <a href="https://github.com/GabrielBarbosaGV/leptos-transition-flip" class="text-green-700 bg-orange-200">
       leptos_transition_flip crate.
     </a>
@@ -110,11 +110,15 @@
     <track kind="captions" />
   </video>
 
-  {#if playing}
-    Video started playing...
-  {/if}
+  <p>
+    {#if playing}
+      Video started playing...
+    {/if}
+  </p>
 
-  Here is a simple usage example:
+  <p>
+    Here is a simple usage example:
+  </p>
 
   <CodeBlock lang="language-rust">
   {`
