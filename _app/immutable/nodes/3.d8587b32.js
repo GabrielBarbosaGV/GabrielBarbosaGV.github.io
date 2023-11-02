@@ -26,7 +26,7 @@ set_timeout(|| {
   with the crossfade function. The resulting effect is this:
 
   `),a=P("div"),_=P("div");for(let r=0;r<o.length;r+=1)o[r].c();p=R(),k=P("div");for(let r=0;r<c.length;r+=1)c[r].c();f=R(),m=P("p"),b=j(`As I wanted the same effect with the also great Leptos Rust crate, I wrote a small crate,
-    `),x=P("a"),M=j("leptos_transition_flip crate."),N=j(`
+    `),x=P("a"),M=j("leptos_transition_flip."),N=j(`
     It results in the same effect (click to play video):`),z=R(),y=P("video"),L=j(`Your browser does not support video tags
 
     `),K=P("track"),ee=R(),F=P("p"),O&&O.c(),te=R(),Y=P("p"),ne=j("Here is a simple usage example:"),re=R(),We(D.$$.fragment),le=R(),G=P("p"),oe=j(`A full code example can be found
@@ -35,7 +35,7 @@ set_timeout(|| {
   with the crossfade function. The resulting effect is this:
 
   `),a=$(h,"DIV",{class:!0});var X=V(a);_=$(X,"DIV",{class:!0});var we=V(_);for(let S=0;S<o.length;S+=1)o[S].l(we);we.forEach(w),p=T(X),k=$(X,"DIV",{class:!0});var ke=V(k);for(let S=0;S<c.length;S+=1)c[S].l(ke);ke.forEach(w),X.forEach(w),f=T(h),m=$(h,"P",{});var Z=V(m);b=A(Z,`As I wanted the same effect with the also great Leptos Rust crate, I wrote a small crate,
-    `),x=$(Z,"A",{href:!0,class:!0});var be=V(x);M=A(be,"leptos_transition_flip crate."),be.forEach(w),N=A(Z,`
+    `),x=$(Z,"A",{href:!0,class:!0});var be=V(x);M=A(be,"leptos_transition_flip."),be.forEach(w),N=A(Z,`
     It results in the same effect (click to play video):`),Z.forEach(w),z=T(h),y=$(h,"VIDEO",{class:!0,src:!0});var ae=V(y);L=A(ae,`Your browser does not support video tags
 
     `),K=$(ae,"TRACK",{kind:!0}),ae.forEach(w),ee=T(h),F=$(h,"P",{});var Ie=V(F);O&&O.l(Ie),Ie.forEach(w),te=T(h),Y=$(h,"P",{});var Ee=V(Y);ne=A(Ee,"Here is a simple usage example:"),Ee.forEach(w),re=T(h),Xe(D.$$.fragment,h),le=T(h),G=$(h,"P",{});var ce=V(G);oe=A(ce,`A full code example can be found
