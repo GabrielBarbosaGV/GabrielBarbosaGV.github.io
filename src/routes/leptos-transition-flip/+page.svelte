@@ -99,12 +99,12 @@
   <p>
     As I wanted the same effect with the also great Leptos Rust crate, I wrote a small crate,
     <a href="https://github.com/GabrielBarbosaGV/leptos-transition-flip" class="text-green-700 bg-orange-200">
-      leptos_transition_flip crate.
+      leptos_transition_flip.
     </a>
     It results in the same effect (click to play video):
   </p>
 
-  <video class="rounded-md my-6"src="flip_example.webm" on:mouseup={handleVideoMouseUp} bind:currentTime={time}>
+  <video class="rounded-md my-6" src="flip_example.webm" on:mouseup={handleVideoMouseUp} bind:currentTime={time}>
     Your browser does not support video tags
 
     <track kind="captions" />
@@ -147,7 +147,7 @@ set_timeout(|| {
     <p>
       A full code example can be found
 
-      <a href="/leptos-transition-flip/code-example" class="text-green-700 bg-orange-200">
+      <a href="https://github.com/GabrielBarbosaGV/leptos-transition-flip/tree/main/example-project" class="text-green-700 bg-orange-200">
         here.
       </a>
     </p>
