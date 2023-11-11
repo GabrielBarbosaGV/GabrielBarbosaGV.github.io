@@ -126,7 +126,7 @@
 let (flip, clear) = prepare_flip(
     ids_to_node_refs,
     container_div_node_ref,
-    "transform 0.6s".to_string()
+    "transform 0.6s"
 ).map_err(|err| format!("FLIP preparation failed with error: {err}"))?;
 
 // Perform action that will change the NodeRefs' positions in page, such as setting signals
