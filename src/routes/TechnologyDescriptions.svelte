@@ -93,4 +93,8 @@ console.log(sentiment\`\${lang} is \${opinion}\`);
     Not much to say here, I'm pretty sure you know ChatGPT pretty well.
     If not, get your mind blown <a class="underline text-yellow-600" href="https://chat.openai.com/chat">here</a>.
   </TechnologyDescription>
+
+  <TechnologyDescription visible={isSelected('bun')}>
+    Bun is a JavaScript/TypeScript runtime and Node.js alternative. It's pretty optimized and uses JavaScriptCore instead of V8, as well as Ziglang for much of its implementation. I aspire to contribute to it, eventually, when I feel more ready. Check out <a class="text-blue-900" href="https://bun.sh/">Bun's homepage</a>. (Take the provided benchmarks with a grain of salt, it's good to be a little skeptical).
+  </TechnologyDescription>
 </div>

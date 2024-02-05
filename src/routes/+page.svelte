@@ -19,7 +19,9 @@
 
     ['ts', 'TypeScript'],
 
-    ['chatgpt', 'ChatGPT']
+    ['chatgpt', 'ChatGPT'],
+
+    ['bun', 'Bun']
 
   ].map(([label, name]) => ({ label, name }));
 
