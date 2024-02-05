@@ -226,9 +226,16 @@
       to debug what was going on inside.
     </WorkExperience>
 
-    <WorkExperience title="KnowledgeWorks" startDate="14/06/2023">
-      My current job! JavaScript/TypeScript everywhere, though I wish we leaned a little more
-      towards TypeScript. JSDoc helps, though.
+    <WorkExperience title="KnowledgeWorks" startDate="14/06/2023" endDate="26/10/2023">
+      JavaScript on the backend, TypeScript on the frontend, as I was using Angular. I know that there
+      are a lot of people going on the side of JSDoc these days, but I just like TypeScript a lot. It
+      doesn't guarantee that you'll get the benefits of typing everywhere if you just spam any and things
+      as such, but out of what I've learned from experience, I prefer TypeScript.
+    </WorkExperience>
+
+    <WorkExperience title="Celfocus" startDate="27/10/2023">
+      Back to Java! Having so much unit tested is a joy, for sure. I mostly work on inner-source software
+      and super-secret stuff I can't talk about, but I must say I'm having a blast.
     </WorkExperience>
 
     <div class="text-center mb-6">
