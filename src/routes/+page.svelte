@@ -21,7 +21,9 @@
 
     ['chatgpt', 'ChatGPT'],
 
-    ['bun', 'Bun']
+    ['bun', 'Bun'],
+
+    ['rust', 'Rust']
 
   ].map(([label, name]) => ({ label, name }));
 
