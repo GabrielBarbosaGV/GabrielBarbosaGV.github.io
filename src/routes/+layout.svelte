@@ -8,4 +8,6 @@
   </title>
 </svelte:head>
 
+<svelte:body class="p-0 m-0" />
+
 <slot />
