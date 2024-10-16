@@ -77,4 +77,58 @@ describe('StringPair', () => {
     expect(() => stringPair.index = -1).toThrowError();
     expect(() => stringPair.index = -10).toThrowError();
   });
+
+  it("returns able to step right with string 'abcde' and index 0", () => {
+    const stringPair = new StringPair({ str: 'abcde', index: 0 });
+
+    expect(stringPair.canStepRight()).toBe(true);
+  });
+
+  it("returns able to step right with string 'abcde' and index 3", () => {
+    const stringPair = new StringPair ({ str: 'abcde', index: 3 });
+
+    expect(stringPair.canStepRight()).toBe(true);
+  });
+
+  it("returns unable to step right with string 'abcde' and index 5", () => {
+    const stringPair = new StringPair({ str: 'abcde', index: 5 });
+    
+    expect(stringPair.canStepRight()).toBe(false);
+  });
+
+  it("returns able to step left with string 'abcde' and index 3", () => {
+    const stringPair = new StringPair({ str: 'abcde', index: 3 });
+
+    expect(stringPair.canStepLeft()).toBe(true);
+  });
+
+  it("returns able to step left with string 'abcde' and index 1", () => {
+    const stringPair = new StringPair({ str: 'abcde', index: 1 });
+
+    expect(stringPair.canStepLeft()).toBe(true);
+  });
+
+  it("returns unable to step left with string 'abcde' and index 0", () => {
+    const stringPair = new StringPair({ str: 'abcde', index: 0 });
+
+    expect(stringPair.canStepLeft()).toBe(false);
+  });
+
+  it("holds equivalence between constructor and setting index with value 1", () => {
+    const stringPair = new StringPair({ str: 'abcde', index: 1 });
+    const stringPairWithoutIndex = new StringPair({ str: 'abcde' });
+
+    stringPairWithoutIndex.index = 1;
+
+    expect(stringPair).toStrictEqual(stringPairWithoutIndex);
+  });
+
+  it("holds equivalence between constructor and setting index with value 3", () => {
+    const stringPair = new StringPair({ str: 'abcde', index: 3 });
+    const stringPairWithoutIndex = new StringPair({ str: 'abcde' });
+
+    stringPairWithoutIndex.index = 3;
+
+    expect(stringPair).toStrictEqual(stringPairWithoutIndex);
+  });
 });

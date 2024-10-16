@@ -42,4 +42,12 @@ export class StringPair {
 
     this._index = index;
   }
+
+  public canStepRight(): boolean {
+    return this._index < this._str.length;
+  }
+
+  public canStepLeft(): boolean {
+    return this._index > 0;
+  }
 }
