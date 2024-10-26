@@ -21,6 +21,6 @@
   }
 
   :global(html) {
-    height: 100%;
+    height: 900%;
   }
 </style>
