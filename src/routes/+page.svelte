@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { StringPair } from '$lib/typing-effect/string-pair';
   import { cycleFor } from '$lib/cycle/cycle';
   import { IntervalsBetween } from '$lib/sleep/intervals';
@@ -47,7 +49,7 @@
     }
   }
 
-  let stringPair: StringPair;
+  let stringPair: StringPair = $state();
 
   async function typeThenWaitThenNext(): Promise<void> {
     thingILike = thingsILikeCycle.next().value!;
@@ -65,10 +67,12 @@
     setTimeout(typeThenWaitThenNext, inbetweenWordIntervals.next().value!);
   }
 
-  let typed: string;
-  let toType: string;
+  let typed: string = $state();
+  let toType: string = $state();
 
-  $: [typed, toType] = stringPair.getSplitString();
+  run(() => {
+    [typed, toType] = stringPair.getSplitString();
+  });
 
   typeThenWaitThenNext();
 </script>
