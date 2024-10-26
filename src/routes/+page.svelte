@@ -29,50 +29,47 @@
 
   const keydownIntervals = new IntervalsBetween({ min: 40, max: 60, rng : { generate: Math.random } }).generate();
 
-  async function type(sp: StringPair, callback: () => void): Promise<void> {
+  let typed: string = $state('');
+  let toType: string = $state('');
+
+  async function type(sp: StringPair): Promise<void> {
     while (sp.canStepRight()) {
       sp.stepRight();
-      callback();
+
+      [typed, toType] = sp.getSplitString();
 
       const interval = keydownIntervals.next().value!;
       await sleepForMillis(interval);
     }
   }
 
-  async function backspaceWhole(sp: StringPair, callback: () => void): Promise<void> {
+  async function backspaceWhole(sp: StringPair): Promise<void> {
     while (sp.canStepLeft()) {
       sp.stepLeft();
-      callback();
+
+      [typed, toType] = sp.getSplitString();
 
       const interval = keydownIntervals.next().value!;
       await sleepForMillis(interval);
     }
   }
-
-  let stringPair: StringPair = $state();
 
   async function typeThenWaitThenNext(): Promise<void> {
     thingILike = thingsILikeCycle.next().value!;
 
-    stringPair = new StringPair({ str: thingILike });
+    const stringPair = new StringPair({ str: thingILike });
+
+    await type(stringPair);
 
     await sleepForMillis(inbetweenWordIntervals.next().value!);
 
-    await type(stringPair, () => stringPair = stringPair);
+    await backspaceWhole(stringPair);
 
     await sleepForMillis(inbetweenWordIntervals.next().value!);
-
-    await backspaceWhole(stringPair, () => stringPair = stringPair);
 
     setTimeout(typeThenWaitThenNext, inbetweenWordIntervals.next().value!);
   }
 
-  let typed: string = $state();
-  let toType: string = $state();
-
-  run(() => {
-    [typed, toType] = stringPair.getSplitString();
-  });
 
   typeThenWaitThenNext();
 </script>
