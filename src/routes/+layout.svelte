@@ -8,6 +8,14 @@
   </title>
 </svelte:head>
 
-<svelte:body class="p-0 m-0" />
-
 <slot />
+
+<style>
+  :global(body) {
+    background: linear-gradient(#07032b, #09021a);
+  }
+
+  :global(html) {
+    height: 100%;
+  }
+</style>

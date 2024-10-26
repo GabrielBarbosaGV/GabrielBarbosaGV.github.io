@@ -4,13 +4,26 @@
   import { IntervalsBetween } from '$lib/sleep/intervals';
   import { sleepForMillis } from '$lib/sleep/sleep';
 
-  const thingsILikeList = `Games|Drawing|Programming|Martial Arts|Functional Programming|Also Object-Oriented Programming|Much more!`.split('|');
+  const thingsILikeList = [
+    'Games',
+    'Drawing',
+    'Programming',
+    'Martial Arts',
+    'Functional Programming',
+    'Also Object-Oriented Programming',
+    'Rick and Morty',
+    'Neon Genesis Evangelion',
+    'Ashita no Joe',
+    'Gurren Lagann',
+    'Nerds',
+    'Much more!'
+  ];
 
   const thingsILikeCycle = cycleFor(thingsILikeList);
 
   let thingILike: string;
 
-  const inbetweenWordIntervals = new IntervalsBetween({ min: 1000, max: 3000, rng: { generate: Math.random } }).generate();
+  const inbetweenWordIntervals = new IntervalsBetween({ min: 800, max: 1200, rng: { generate: Math.random } }).generate();
 
   const keydownIntervals = new IntervalsBetween({ min: 40, max: 60, rng : { generate: Math.random } }).generate();
 
@@ -60,7 +73,7 @@
   typeThenWaitThenNext();
 </script>
 
-<div class="min-w-[100vw] min-h-[100vh] mx-40 mt-8">
+<div class="mx-40 mt-8 text-white">
   <h1 class="text-blue-900 font-bold text-3xl">
     About me
   </h1>
@@ -68,10 +81,10 @@
   <div class="flex flex-row">
     <h2>
       <span>
-        {typed}
+        I like {typed}
       </span>
 
-      <span style="opacity: 0.5;">
+      <span style="opacity: 0.7;">
         {toType}
       </span>
     </h2>
