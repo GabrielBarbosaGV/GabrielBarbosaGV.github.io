@@ -3,6 +3,7 @@
   import { cycleFor } from '$lib/cycle/cycle';
   import { IntervalsBetween } from '$lib/sleep/intervals';
   import { sleepForMillis } from '$lib/sleep/sleep';
+  import type { Snippet } from 'svelte';
 
   const thingsILikeList = [
     'Games',
@@ -71,39 +72,41 @@
   typeThenWaitThenNext();
 
   let scrollY: number = $state(0);
+
+  interface JobExperience {
+    title: string,
+    startDate: string,
+    endDate?: string,
+    paragraph: Snippet
+  }
 </script>
 
 <svelte:window bind:scrollY={scrollY} />
 
 <div class="mx-40 mt-8 text-white">
-  <div class="sticky top-4">
-    <div class:opacity-0={scrollY > 100} class="flex justify-center items-center transition-all duration-500">
-      <div class="h-[150%] w-[105%] bg-blue-900 absolute z-[-1] blur rounded-md">
-      </div>
+  <div class="flex justify-center items-center transition-all">
+    <div class="w-[100%]">
+      <h1 class="text-blue-300 font-bold text-3xl">
+        About me
+      </h1>
 
-      <div class="w-[100%]">
-        <h1 class="text-blue-300 font-bold text-3xl">
-          About me
-        </h1>
+      <div class="flex flex-row">
+        <h2>
+          <span>
+            I like {typed}
+          </span>
 
-        <div class="flex flex-row">
-          <h2>
-            <span>
-              I like {typed}
-            </span>
-
-            <span style="opacity: 0.7;">
-              {toType}
-            </span>
-          </h2>
-        </div>
+          <span style="opacity: 0.7;">
+            {toType}
+          </span>
+        </h2>
       </div>
     </div>
   </div>
 
   <div class="my-8">
     <p>
-      As a software engineer, I've dealt with a fair share of codebases and and systems administration tasks. Through them,
+      As a software engineer, I've dealt with a fair share of codebases and systems administration tasks. Through them,
       I've experienced firsthand the variety of efficiency metrics one can use to measure a project. Some of the ones I
       worked on would have immense LOC throughput, others would be clear to read, and others would have high coverage,
       as well as combinations of these aspects. Of all of these, I must say that TDD has charmed me over other
@@ -121,4 +124,44 @@
       to open-source once I correctly slot time for it.
     </p>
   </div>
+
+  <div class="flex justify-center items-center mt-14 flex-col">
+    <h2 class="text-lg">My Experience:</h2>
+
+    {@render jobExperience({ title: 'YouDigital', startDate: '26/02/2019', endDate: '28/03/2021', paragraph: youDigitalParagraph })}
+    {@render jobExperience({ title: 'Americanas', startDate: '10/04/2021', endDate: '30/08/2021', paragraph: americanasParagraph })}
+    {@render jobExperience({ title: 'EDGE', startDate: '10/04/2021', endDate: '30/08/2021', paragraph: edgeParagraph })}
+    {@render jobExperience({ title: 'KnowledgeWorks', startDate: '14/06/2023', endDate: '26/10/2023', paragraph: knowledgeWorksParagraph })}
+    {@render jobExperience({ title: 'Celfocus', startDate: '27/10/2023', paragraph: celfocusParagraph })}
+  </div>
 </div>
+
+{#snippet youDigitalParagraph()}
+  <p class="text-xs">Java, Spring, PostgreSQL, Python, Flask, Systems Administration</p>
+{/snippet}
+
+{#snippet americanasParagraph()}
+  <p class="text-xs">Elixir + Phoenix, Ruby on Rails, MongoDB</p>
+{/snippet}
+
+{#snippet edgeParagraph()}
+  <p class="text-xs">Java, Spring, Angular, MySQL</p>
+{/snippet}
+
+{#snippet knowledgeWorksParagraph()}
+  <p class="text-xs">Javascript, Typescript, Express, Angular, Sequelize</p>
+{/snippet}
+
+{#snippet celfocusParagraph()}
+  <p class="text-xs">Java, Spring</p>
+{/snippet}
+
+{#snippet jobExperience(je: JobExperience)}
+  <div class="w-full my-4">
+    <span class="text-xl">{je.title}</span>
+
+    <span class="text-sm">From {je.startDate} {je.endDate ? `to ${je.endDate}` : '- Current'}</span>
+
+    {@render je.paragraph?.()}
+  </div>
+{/snippet}
