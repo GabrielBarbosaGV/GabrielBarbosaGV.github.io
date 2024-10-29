@@ -91,7 +91,9 @@
   }
 
   let technologies = {
-    'Rust': rustLanguageExample
+    'Rust': rustLanguageExample,
+    'HTMX': htmxExample,
+    'Haskell': haskellExample
   };
 </script>
 
@@ -99,7 +101,6 @@
 
 <svelte:head>
   <link href="/prism.css" rel="stylesheet" />
-  <script src="/prism.js"></script>
 </svelte:head>
 
 <div class="mx-40 mt-8 text-white">
@@ -188,7 +189,49 @@
 {/snippet}
 
 {#snippet rustLanguageExample()}
+  <script src="/prism.js"></script>
   <div in:fade out:fade>
-    <CodeBlock language="rust" code={data.rustSnippet}/>
+    <CodeBlock language="rust" code={data.rustSnippet} />
   </div>
+{/snippet}
+
+{#snippet htmxExample()}
+  <script src="/prism.js"></script>
+  <div in:fade out:fade>
+    HTMX is a HTML extension library that allows for asynchronous operations to alter the DOM.
+    One possible usage is the following, as shown in the technology's official page:
+
+    <CodeBlock language="html" code={data.htmxSnippet} />
+  </div>
+{/snippet}
+
+{#snippet haskellExample()}
+  <script src="/prism.js"></script>
+  <div in:fade out:fade>
+    Haskell is an amazing and underrated functional programming language. Its type inference and
+    concise syntax would make it very powerful, were it not left in the sidelines a good portion
+    of time due to the mistification of monads and their usage. It's not possible to portray all
+    of the good aspects of the language solely through a small code block, so I recommend taking
+    a look at these videos:
+  </div>
+
+  <div class="flex flex-col md:flex-row justify-center items-center">
+   <iframe class="p-6 md:h-[280px] aspect-video"
+      src="https://www.youtube.com/embed/RqvCNb7fKsg"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+
+    <iframe class="p-6 md:h-[280px] aspect-video"
+      src="https://www.youtube.com/embed/Qa8IfEeBJqk"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <CodeBlock language="haskell" code={data.haskellSnippet} />
 {/snippet}

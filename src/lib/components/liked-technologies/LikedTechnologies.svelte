@@ -1,6 +1,5 @@
 <script lang="ts">
   import { type Snippet } from "svelte";
-  import { page } from '$app/stores';
 
   interface Props {
     technologies: Record<string, Snippet>
@@ -63,4 +62,6 @@
   </div>
 </div>
 
-{@render technologies[selectedTech]()}
+<div class="my-4">
+  {@render technologies[selectedTech]()}
+</div>

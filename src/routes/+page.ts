@@ -1,4 +1,3 @@
-import { storeHighlightJs } from "@skeletonlabs/skeleton";
 import type { PageLoad } from "./$types";
 
 export const prerender = true;
@@ -8,5 +7,17 @@ export const load: PageLoad = async ({ fetch }) => {
 
   const rustSnippet = await rustResponse.text();
 
-  return { rustSnippet };
+  const htmxResponse = await fetch('/code-snippets/htmx.html');
+
+  const htmxSnippet = await htmxResponse.text();
+
+  const haskellResponse = await fetch('/code-snippets/haskell.hs');
+
+  const haskellSnippet = await haskellResponse.text();
+
+  return {
+    rustSnippet,
+    htmxSnippet,
+    haskellSnippet
+  };
 };
