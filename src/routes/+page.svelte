@@ -4,6 +4,12 @@
   import { IntervalsBetween } from '$lib/sleep/intervals';
   import { sleepForMillis } from '$lib/sleep/sleep';
   import type { Snippet } from 'svelte';
+	import LikedTechnologies from '$lib/components/liked-technologies/LikedTechnologies.svelte';
+  import { type PageData } from './$types';
+  import CodeBlock from '$lib/components/code-block/CodeBlock.svelte';
+  import { fade } from 'svelte/transition';
+
+  const { data }: { data: PageData } = $props();
 
   const thingsILikeList = [
     'Games',
@@ -24,7 +30,7 @@
 
   let thingILike: string;
 
-  const inbetweenWordIntervals = new IntervalsBetween({ min: 800, max: 1200, rng: { generate: Math.random } }).generate();
+  const inbetweenWordIntervals = new IntervalsBetween({ min: 500, max: 900, rng: { generate: Math.random } }).generate();
 
   const keydownIntervals = new IntervalsBetween({ min: 40, max: 60, rng : { generate: Math.random } }).generate();
 
@@ -58,6 +64,10 @@
 
     const stringPair = new StringPair({ str: thingILike });
 
+    [typed, toType] = stringPair.getSplitString();
+
+    await sleepForMillis(inbetweenWordIntervals.next().value!);
+
     await type(stringPair);
 
     await sleepForMillis(inbetweenWordIntervals.next().value!);
@@ -79,9 +89,18 @@
     endDate?: string,
     paragraph: Snippet
   }
+
+  let technologies = {
+    'Rust': rustLanguageExample
+  };
 </script>
 
 <svelte:window bind:scrollY={scrollY} />
+
+<svelte:head>
+  <link href="/prism.css" rel="stylesheet" />
+  <script src="/prism.js"></script>
+</svelte:head>
 
 <div class="mx-40 mt-8 text-white">
   <div class="flex justify-center items-center transition-all">
@@ -134,6 +153,8 @@
     {@render jobExperience({ title: 'KnowledgeWorks', startDate: '14/06/2023', endDate: '26/10/2023', paragraph: knowledgeWorksParagraph })}
     {@render jobExperience({ title: 'Celfocus', startDate: '27/10/2023', paragraph: celfocusParagraph })}
   </div>
+
+  <LikedTechnologies {technologies} />
 </div>
 
 {#snippet youDigitalParagraph()}
@@ -163,5 +184,11 @@
     <span class="text-sm">From {je.startDate} {je.endDate ? `to ${je.endDate}` : '- Current'}</span>
 
     {@render je.paragraph?.()}
+  </div>
+{/snippet}
+
+{#snippet rustLanguageExample()}
+  <div in:fade out:fade>
+    <CodeBlock language="rust" code={data.rustSnippet}/>
   </div>
 {/snippet}
